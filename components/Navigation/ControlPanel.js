@@ -39,21 +39,26 @@ import PSLStandings from '../PSL/Standings/PSLStandings'
 import League1Standings from '../League1/Standings/League1Standings'
 import LaLIGAStandings from '../LaLIGA/Standings/LaLIGAStandings'
 import BundesligaStandings from '../Bundesliga/Standings/BundesligaStandings'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import EPLGameDetails from '../PSL/Home/GameDetails/PSLGameDetails'
+import PSLGameDetails from '../PSL/Home/GameDetails/PSLGameDetails'
 
 
 const Drawer = createDrawerNavigator()
 const BottomTab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
+const Top = createMaterialTopTabNavigator()
 
 function PremierLeagueBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='EPL Events' component={HomeComp} />
+            <BottomTab.Screen name='EPL Events' component={EPLGameStack} />
             <BottomTab.Screen name='Standings' component={EPLStandings} />
             <BottomTab.Screen name='Teams' component={EPLTeamStack} />
         </BottomTab.Navigator>
     )
 }
+
 
 function EPLTeamStack() {
     return (
@@ -61,6 +66,15 @@ function EPLTeamStack() {
             <Stack.Screen name='EPL Teams' component={AllTeams} />
             <Stack.Screen name='Team Details' component={TeamDetails} />
             <Stack.Screen name='Team Stats' component={TeamStats} />
+        </Stack.Navigator>
+    )
+}
+
+function EPLGameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='EPL Games' component={HomeComp} />
+            <Stack.Screen name='EPLGameDetails' component={EPLGameDetails} />
         </Stack.Navigator>
     )
 }
@@ -149,10 +163,19 @@ function League1TeamStack() {
 function PSLBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='PSL Events' component={PSLHome} />
+            <BottomTab.Screen name='PSL Events' component={PSLGameStack} />
             <BottomTab.Screen name='Standings' component={PSLStandings} />
             <BottomTab.Screen name='Teams' component={PSLTeamStack} />
         </BottomTab.Navigator>
+    )
+}
+
+function PSLGameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='EPLGames' component={PSLHome} />
+            <Stack.Screen name='EPLGameDetails' component={PSLGameDetails} />
+        </Stack.Navigator>
     )
 }
 

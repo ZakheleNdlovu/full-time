@@ -44,16 +44,16 @@ const PSLStandings = () => {
                 <View style={{ width: '8%', alignItems: 'flex-start' }}>
                     <Text>GP</Text>
                 </View>
-                <View style={{ width: '9%', alignItems: 'flex-start' }}>
+                <View style={{ width: '10%', alignItems: 'flex-start' }}>
                     <Text>PTS</Text>
                 </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                <View style={{ width: '9%', alignItems: 'flex-start' }}>
                     <Text>W</Text>
                 </View>
                 <View style={{ width: '8%', alignItems: 'flex-start' }}>
                     <Text>L</Text>
                 </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                <View style={{ width: '7%', alignItems: 'flex-start' }}>
                     <Text>D</Text>
                 </View>
                 <View style={{ width: '8%', alignItems: 'flex-start' }}>

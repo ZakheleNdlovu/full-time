@@ -43,7 +43,7 @@ const TeamDetails3 = () => {
                 <View style={{ width: '97%', alignSelf: 'center', marginTop: 2, borderRadius: 10, overflow: 'hidden' }}>
                     <TouchableOpacity onPress={() => navigation.navigate('Team Stats', { stats: stats, team: team })}
                         style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: `#${team.color}`, opacity: 0.9 }}>
-                        <ImageBackground source={{ uri: team.logos[0].href }} style={{ width: '100%', height: 350, justifyContent: 'center', alignItems: 'center' }}>
+                        <ImageBackground source={{ uri: team.logos[0] ? team.logos[0].href : 'https://th.bing.com/th/id/R.0a09df8ffdb1195277590bd5b9f06af6?rik=4zje8w%2bankOyew&riu=http%3a%2f%2fpluspng.com%2fimg-png%2ffootball-png-transparent-image-2000.png&ehk=DYK7B1tP7ihsD54yUb56O%2bGDqrYKxa1tipyeLKLpue4%3d&risl=&pid=ImgRaw&r=0' }} style={{ width: '100%', height: 350, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ color: `#${team.alternateColor}`, fontSize: 20, fontWeight: 'bold' }}>Tap to see season stats</Text>
                         </ImageBackground>
                     </TouchableOpacity>
