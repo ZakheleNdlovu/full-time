@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useRoute } from '@react-navigation/native'
-import EPLStats from './EPLStats'
-import EPLEventDetails from './EPLEventDetails'
-import EPLLineUps from './EPLLineUp'
+import SAStats from './SAStats'
+import SAEventDetails from './SAEventDetails'
+import SALineUps from './SALineUps'
 
-const EPLGameDetails = () => {
+const SAGameDetails = () => {
 
     const route = useRoute()
     const { game } = route.params
@@ -45,9 +45,9 @@ const EPLGameDetails = () => {
                     <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Game Details</Text>
                 </View>
                 <View >
-                    <EPLStats game={game} />
-                    <EPLEventDetails game={game} />
-                    <EPLLineUps game={game} />
+                    <SAStats game={game} />
+                    <SAEventDetails game={game} />
+                    <SALineUps game={game} />
                 </View>
                 <View style={{ height: 1000 }}>
 
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default EPLGameDetails
+export default SAGameDetails

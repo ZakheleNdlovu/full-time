@@ -42,6 +42,12 @@ import BundesligaStandings from '../Bundesliga/Standings/BundesligaStandings'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import EPLGameDetails from '../PSL/Home/GameDetails/PSLGameDetails'
 import PSLGameDetails from '../PSL/Home/GameDetails/PSLGameDetails'
+import MLSGameDetails from '../MLS/Home/MLSGameDetails/MLSGameDetails'
+import LLGameDetails from '../LaLIGA/Home/LLGameDetails/LLGameStats'
+import BGameDetails from '../Bundesliga/Home/BGameDetails/BgameDetails'
+import L1GameDetails from '../League1/Home/L1GameDetails/L1GameDetails'
+import SAGameDetails from '../SerieA/Home/SAGameDetails/SAGameDetails'
+import SerieAStandings from '../SerieA/Standings/SeriaStandings'
 
 
 const Drawer = createDrawerNavigator()
@@ -82,7 +88,7 @@ function EPLGameStack() {
 function LaLIGABottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='LaLiga Events' component={LaLIGAHome} />
+            <BottomTab.Screen name='LaLiga Events' component={LaLIGAGameStack} />
             <BottomTab.Screen name='Standings' component={LaLIGAStandings} />
             <BottomTab.Screen name='Teams' component={LaLIGATeamStack} />
         </BottomTab.Navigator>
@@ -99,10 +105,20 @@ function LaLIGATeamStack() {
     )
 }
 
+function LaLIGAGameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='LLGames' component={LaLIGAHome} />
+            <Stack.Screen name='LLGameDetails' component={LLGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function SerieABottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='Serie A Events' component={SerieAHome} />
+            <BottomTab.Screen name='Serie A Events' component={SerieAGameStack} />
+            <BottomTab.Screen name='Serie A Standings' component={SerieAStandings} />
             <BottomTab.Screen name='Serie A Teams' component={SerieATeamStack} />
         </BottomTab.Navigator>
     )
@@ -119,10 +135,19 @@ function SerieATeamStack() {
     )
 }
 
+function SerieAGameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='SAGames' component={SerieAHome} />
+            <Stack.Screen name='SAGameDetails' component={SAGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function BundesligaBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='Bundesliga Events' component={BundesligaHome} />
+            <BottomTab.Screen name='Bundesliga Events' component={BundesligaGameStack} />
             <BottomTab.Screen name='Standings' component={BundesligaStandings} />
             <BottomTab.Screen name='Teams' component={BundesligaTeamStack} />
         </BottomTab.Navigator>
@@ -140,10 +165,19 @@ function BundesligaTeamStack() {
     )
 }
 
+function BundesligaGameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='BGames' component={BundesligaHome} />
+            <Stack.Screen name='BGameDetails' component={BGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function League1BottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='League 1 Events' component={League1Home} />
+            <BottomTab.Screen name='League 1 Events' component={League1GameStack} />
             <BottomTab.Screen name='Standings' component={League1Standings} />
             <BottomTab.Screen name='Teams' component={League1TeamStack} />
         </BottomTab.Navigator>
@@ -156,6 +190,15 @@ function League1TeamStack() {
             <Stack.Screen name='League 1 Teams' component={AllTeams5} />
             <Stack.Screen name='Team Details' component={TeamDetails5} />
             <Stack.Screen name='Team Stats' component={TeamStats5} />
+        </Stack.Navigator>
+    )
+}
+
+function League1GameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='L1Games' component={League1Home} />
+            <Stack.Screen name='L1GameDetails' component={L1GameDetails} />
         </Stack.Navigator>
     )
 }
@@ -192,7 +235,7 @@ function PSLTeamStack() {
 function MLSBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='MLS Events' component={MLSHome} />
+            <BottomTab.Screen name='MLS Events' component={MLSGameStack} />
             <BottomTab.Screen name='Standings' component={MLSStandings} />
             <BottomTab.Screen name='Teams' component={MLSTeamStack} />
         </BottomTab.Navigator>
@@ -205,6 +248,15 @@ function MLSTeamStack() {
             <Stack.Screen name='MLS Teams' component={AllTeams4} />
             <Stack.Screen name='Team Details' component={TeamDetails4} />
             <Stack.Screen name='Team Stats' component={TeamStats4} />
+        </Stack.Navigator>
+    )
+}
+
+function MLSGameStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='MLS Games' component={MLSHome} />
+            <Stack.Screen name='MLSGameDetails' component={MLSGameDetails} />
         </Stack.Navigator>
     )
 }

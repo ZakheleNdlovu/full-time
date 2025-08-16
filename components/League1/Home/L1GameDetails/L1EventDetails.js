@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-const EPLEventDetails = ({ game }) => {
+const L1EventDetails = ({ game }) => {
 
     if (game.competitions[0].details[0])
         return (
@@ -9,7 +9,7 @@ const EPLEventDetails = ({ game }) => {
                 <View style={{ padding: 10, width: '95%', alignSelf: 'center', borderWidth: 1, borderColor: 'black', borderRadius: 5 }}>
                     <Text style={{ alignSelf: 'center', fontSize: 17, fontWeight: 'bold' }}>Game Events</Text>
                 </View>
-                <View style={{ elevation: 1, borderRadius: 10, width: '95%', alignSelf: 'center', borderColor: 'lightgray', borderWidth: 1 }} >
+                <View style={{ borderRadius: 10, width: '95%', alignSelf: 'center', borderColor: 'lightgray', borderWidth: 1 }} >
                     {
                         game.competitions[0].details.map((detail, i) => {
 
@@ -30,4 +30,4 @@ const EPLEventDetails = ({ game }) => {
 
 }
 
-export default EPLEventDetails
+export default L1EventDetails

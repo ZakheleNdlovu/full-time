@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useRoute } from '@react-navigation/native'
-import EPLStats from './EPLStats'
-import EPLEventDetails from './EPLEventDetails'
-import EPLLineUps from './EPLLineUp'
+import MLSStats from './MLSStats'
+import MLSEventDetails from './MLSEventDetails'
+import MLSLineUps from './MLSLineUps'
 
-const EPLGameDetails = () => {
+const MLSGameDetails = () => {
 
     const route = useRoute()
     const { game } = route.params
@@ -45,9 +45,9 @@ const EPLGameDetails = () => {
                     <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Game Details</Text>
                 </View>
                 <View >
-                    <EPLStats game={game} />
-                    <EPLEventDetails game={game} />
-                    <EPLLineUps game={game} />
+                    <MLSStats game={game} />
+                    <MLSEventDetails game={game} />
+                    <MLSLineUps game={game} />
                 </View>
                 <View style={{ height: 1000 }}>
 
@@ -69,14 +69,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#f8f8f8',
         borderRadius: 10,
         marginBottom: 10,
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        elevation: 2,
         width: '100%',
         alignSelf: 'center',
         flexDirection: 'row',
         justifyContent: 'space-around',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: 'black'
     },
     box: {
         padding: 10,
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default EPLGameDetails
+export default MLSGameDetails

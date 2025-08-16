@@ -6,10 +6,10 @@ const EventDetails = ({ game }) => {
     if (game.competitions[0].details[0])
         return (
             <ScrollView style={{ marginVertical: 20 }}>
-                <View style={{ padding: 10, elevation: 2, width: '95%', alignSelf: 'center', borderWidth: 1, borderColor: 'black', borderRadius: 5 }}>
+                <View style={{ padding: 10, width: '95%', alignSelf: 'center', borderWidth: 1, borderColor: 'black', borderRadius: 5 }}>
                     <Text style={{ alignSelf: 'center', fontSize: 17, fontWeight: 'bold' }}>Game Events</Text>
                 </View>
-                <View style={{ elevation: 1, borderRadius: 10, width: '95%', alignSelf: 'center', height: '100%' }} >
+                <View style={{ borderRadius: 10, width: '95%', alignSelf: 'center', borderWidth: 1, borderColor: 'lightgray' }} >
                     {
                         game.competitions[0].details.map((detail, i) => {
 

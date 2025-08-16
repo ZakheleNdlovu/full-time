@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import TeamPlayer from './TeamPlayer'
+import SATeamPlayer from './SATeamPlayer'
 
-const PSLLineUps = ({ game }) => {
+const SALineUps = ({ game }) => {
 
     const [starters, setStarters] = useState([])
     const [starters2, setStarters2] = useState([])
@@ -13,7 +13,7 @@ const PSLLineUps = ({ game }) => {
     try {
         useEffect(() => {
             const getStarters = async () => {
-                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/rsa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
+                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/ita.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
                 if (!response.ok) {
                     throw new Error("error");
 
@@ -71,7 +71,7 @@ const PSLLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <TeamPlayer id={player.playerId} playerDet={player} />
+                                        <SATeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -84,4 +84,4 @@ const PSLLineUps = ({ game }) => {
     )
 }
 
-export default PSLLineUps
+export default SALineUps

@@ -1,19 +1,18 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import TeamPlayer from './TeamPlayer'
+import MLSTeamPlayer from './MLSTeamPlayer'
 
-const PSLLineUps = ({ game }) => {
+const MLSLineUps = ({ game }) => {
 
     const [starters, setStarters] = useState([])
     const [starters2, setStarters2] = useState([])
-    const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
 
 
     try {
         useEffect(() => {
             const getStarters = async () => {
-                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/rsa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
+                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/usa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
                 if (!response.ok) {
                     throw new Error("error");
 
@@ -58,7 +57,7 @@ const PSLLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <TeamPlayer id={player.playerId} playerDet={player} />
+                                        <EPLTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -71,7 +70,7 @@ const PSLLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <TeamPlayer id={player.playerId} playerDet={player} />
+                                        <MLSTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -84,4 +83,4 @@ const PSLLineUps = ({ game }) => {
     )
 }
 
-export default PSLLineUps
+export default MLSLineUps

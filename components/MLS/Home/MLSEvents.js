@@ -1,13 +1,16 @@
 import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const MLSEvents = ({ games }) => {
+
+    const navigation = useNavigation()
     return (
         <>
             <ScrollView style={{ width: '100%' }} showsVerticalScrollIndicator={false}>
                 {
                     games.map((game, index) => (
-                        <TouchableOpacity key={index}>
+                        <TouchableOpacity key={index} onPress={() => navigation.navigate('MLSGameDetails', { game: game })}>
                             <View style={styles.box}>
                                 <Text>{game.name}</Text>
                                 <Text>{new Date(game.date).toLocaleDateString()}</Text>

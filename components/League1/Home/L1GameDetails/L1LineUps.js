@@ -1,19 +1,18 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import TeamPlayer from './TeamPlayer'
+import L1TeamPlayer from './L1TeamPlayer'
 
-const PSLLineUps = ({ game }) => {
+const L1LineUps = ({ game }) => {
 
     const [starters, setStarters] = useState([])
     const [starters2, setStarters2] = useState([])
-    const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
 
 
     try {
         useEffect(() => {
             const getStarters = async () => {
-                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/rsa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
+                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/fra.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
                 if (!response.ok) {
                     throw new Error("error");
 
@@ -40,7 +39,7 @@ const PSLLineUps = ({ game }) => {
     }
     return (
         <View >
-            <View style={{ width: '97%', borderRadius: 10, alignSelf: 'center', borderColor: 'black', borderWidth: 1 }}>
+            <View style={{ elevation: 2, width: '97%', borderRadius: 10, alignSelf: 'center', borderColor: 'black', borderWidth: 1 }}>
                 <Text style={{ fontSize: 20, fontWeight: 'bold', alignSelf: 'center' }}>Team LineUps</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
 
@@ -58,7 +57,7 @@ const PSLLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <TeamPlayer id={player.playerId} playerDet={player} />
+                                        <EPLTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -71,7 +70,7 @@ const PSLLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <TeamPlayer id={player.playerId} playerDet={player} />
+                                        <L1TeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -84,4 +83,4 @@ const PSLLineUps = ({ game }) => {
     )
 }
 
-export default PSLLineUps
+export default L1LineUps
