@@ -60,5 +60,3 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 - Football data APIs (ESPN API)
 - Open source contributors
 
----
-Feel free to customize this README with more specific instructions or screenshots as your project evolves!
