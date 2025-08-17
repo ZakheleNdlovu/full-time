@@ -39,7 +39,7 @@ const BLineUps = ({ game }) => {
     }
     return (
         <View >
-            <View style={{ elevation: 2, width: '97%', borderRadius: 10, alignSelf: 'center', borderColor: 'black', borderWidth: 1 }}>
+            <View style={{ width: '97%', borderRadius: 10, alignSelf: 'center', borderColor: 'black', borderWidth: 1 }}>
                 <Text style={{ fontSize: 20, fontWeight: 'bold', alignSelf: 'center' }}>Team LineUps</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
 
@@ -57,7 +57,7 @@ const BLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <EPLTeamPlayer id={player.playerId} playerDet={player} />
+                                        <BTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )

@@ -57,7 +57,7 @@ const LLLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <EPLTeamPlayer id={player.playerId} playerDet={player} />
+                                        <LLTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )

@@ -58,7 +58,7 @@ const SALineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <TeamPlayer id={player.playerId} playerDet={player} />
+                                        <SATeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
