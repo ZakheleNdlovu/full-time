@@ -15,7 +15,7 @@ const MLSEventDetails = ({ game }) => {
 
                             return (
                                 <View key={i} style={{ height: 35, margin: 5, padding: 5 }}>
-                                    <Text style={{ fontSize: 15 }}> - {detail.athletesInvolved[0].fullName}
+                                    <Text style={{ fontSize: 15 }}> - {detail.athletesInvolved ? detail.athletesInvolved[0].fullName : null}
                                         ({detail.team.id == game.competitions[0].competitors[0].team.id ? game.competitions[0].competitors[0].team.name : game.competitions[0].competitors[1].team.name})
                                         - {detail.type.text} - {detail.clock.displayValue} min </Text>
                                 </View>
