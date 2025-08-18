@@ -37,7 +37,6 @@ A JavaScript project for tracking football scores and standings.
    ```bash
    npm start
    ```
-   _or open `index.html` directly in your browser if it's a static app._
 
 ## Usage
 
