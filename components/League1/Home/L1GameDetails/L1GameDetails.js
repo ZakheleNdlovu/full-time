@@ -19,9 +19,9 @@ const L1GameDetails = () => {
                 <Text>{game.competitions[0].status.type.description}</Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <View style={{ width: '49%', alignItems: 'center', flexDirection: 'row', justifyContent: 'center' }}>
-                        <View style={{ alignItems: 'center' }}>
+                        <View style={{ alignItems: 'center', width: '80%' }}>
                             <Image source={{ uri: game.competitions[0].competitors[0].team.logo ? game.competitions[0].competitors[0].team.logo : 'https://th.bing.com/th/id/R.0a09df8ffdb1195277590bd5b9f06af6?rik=4zje8w%2bankOyew&riu=http%3a%2f%2fpluspng.com%2fimg-png%2ffootball-png-transparent-image-2000.png&ehk=DYK7B1tP7ihsD54yUb56O%2bGDqrYKxa1tipyeLKLpue4%3d&risl=&pid=ImgRaw&r=0' }} style={{ width: 80, height: 80 }} />
-                            <Text>{game.competitions[0].competitors[0].team.displayName}</Text>
+                            <Text style={{ textAlign: 'center' }}>{game.competitions[0].competitors[0].team.displayName}</Text>
                         </View>
                         <View style={{ width: '20%', alignItems: 'center' }}>
                             <Text style={{ fontSize: 30 }}>{game.competitions[0].competitors[0].score}</Text>
@@ -32,9 +32,9 @@ const L1GameDetails = () => {
                         <View style={{ width: '20%', alignItems: 'center' }}>
                             <Text style={{ fontSize: 30 }}>{game.competitions[0].competitors[1].score}</Text>
                         </View>
-                        <View style={{ alignItems: 'center' }}>
+                        <View style={{ alignItems: 'center', width: '80%' }}>
                             <Image source={{ uri: game.competitions[0].competitors[1].team.logo ? game.competitions[0].competitors[1].team.logo : 'https://th.bing.com/th/id/R.0a09df8ffdb1195277590bd5b9f06af6?rik=4zje8w%2bankOyew&riu=http%3a%2f%2fpluspng.com%2fimg-png%2ffootball-png-transparent-image-2000.png&ehk=DYK7B1tP7ihsD54yUb56O%2bGDqrYKxa1tipyeLKLpue4%3d&risl=&pid=ImgRaw&r=0' }} style={{ width: 80, height: 80 }} />
-                            <Text>{game.competitions[0].competitors[1].team.displayName}</Text>
+                            <Text style={{ textAlign: 'center' }}>{game.competitions[0].competitors[1].team.displayName}</Text>
                         </View>
                     </View>
                 </View>
