@@ -17,21 +17,21 @@ const Events = ({ games }) => {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                                 <View style={{ width: '49%', alignItems: 'center', flexDirection: 'row', justifyContent: 'center' }}>
                                     <View style={{ alignItems: 'center', width: '75%' }}>
-                                        <Image source={{ uri: game.competitions[0].competitors[1].team.logo }} style={{ width: 50, height: 50 }} />
-                                        <Text style={{ TextAlign: 'center' }}>{game.competitions[0].competitors[1].team.displayName}</Text>
+                                        <Image source={{ uri: game.competitions[0].competitors[0].team.logo }} style={{ width: 50, height: 50 }} />
+                                        <Text style={{ TextAlign: 'center' }}>{game.competitions[0].competitors[0].team.displayName}</Text>
                                     </View>
                                     <View style={{ width: '25%', alignItems: 'center' }}>
-                                        <Text style={{ fontSize: 20 }}>{game.competitions[0].competitors[1].score}</Text>
+                                        <Text style={{ fontSize: 20 }}>{game.competitions[0].competitors[0].score}</Text>
                                     </View>
                                 </View>
                                 <Text>VS</Text>
                                 <View style={{ width: '49%', alignItems: 'center', flexDirection: 'row', justifyContent: 'center' }}>
                                     <View style={{ width: '25%', alignItems: 'center' }}>
-                                        <Text style={{ fontSize: 20 }}>{game.competitions[0].competitors[0].score}</Text>
+                                        <Text style={{ fontSize: 20 }}>{game.competitions[0].competitors[1].score}</Text>
                                     </View>
                                     <View style={{ alignItems: 'center', width: '75%' }}>
-                                        <Image source={{ uri: game.competitions[0].competitors[0].team.logo }} style={{ width: 50, height: 50 }} />
-                                        <Text style={{ textAlign: 'center' }}>{game.competitions[0].competitors[0].team.displayName}</Text>
+                                        <Image source={{ uri: game.competitions[0].competitors[1].team.logo }} style={{ width: 50, height: 50 }} />
+                                        <Text style={{ textAlign: 'center' }}>{game.competitions[0].competitors[1].team.displayName}</Text>
                                     </View>
                                 </View>
                             </View>
