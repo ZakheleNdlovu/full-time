@@ -42,7 +42,7 @@ const HomeComp = () => {
                 <Image source={{ uri: league.logos[0].href }} width={45} height={45} />
             </View>
             <View >
-                <Text style={styles.text2}>Upcoming Events</Text>
+                <Text style={styles.text2}>Latest</Text>
             </View>
             <Events games={games} />
             <View style={{ height: 50 }}>

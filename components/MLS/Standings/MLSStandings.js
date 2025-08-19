@@ -16,7 +16,7 @@ const MLSStandings = () => {
                 throw new error('Unable to get Standings')
             }
             const data = await response.json()
-            setStandings(data.children[0].standings.entries)
+            setStandings(data.children)
             setLoading(false)
         }
         getStandings()
@@ -37,56 +37,137 @@ const MLSStandings = () => {
                 </TouchableOpacity>
                 <Text style={styles.text2}>EPL Standings</Text>
             </View>
-            <View style={styles.headerBox2}>
-                <View style={{ width: '54%' }}>
-                    <Text>Team name</Text>
+
+            <ScrollView style={{ width: '99%', alignSelf: 'center', padding: 5, height: '85%', marginVertical: 5 }}>
+
+                <View style={styles.headerBox2}>
+                    <View style={{ width: '10%' }}>
+                        <Text>Rank|</Text>
+                    </View>
+                    <View style={{ width: '45%' }}>
+                        <Text>Team name                             </Text>
+                    </View>
+                    <View style={{ width: '9%', alignItems: 'flex-start' }}>
+                        <Text>GP |</Text>
+                    </View>
+                    <View style={{ width: '9%', alignItems: 'flex-start' }}>
+                        <Text>PTS |</Text>
+                    </View>
+                    <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                        <Text>W |</Text>
+                    </View>
+                    <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                        <Text>L |</Text>
+                    </View>
+                    <View style={{ width: '7%', alignItems: 'flex-start' }}>
+                        <Text>D |</Text>
+                    </View>
+                    <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                        <Text>GD|</Text>
+                    </View>
                 </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                    <Text>GP</Text>
+                <View>
+                    <Text>{standings[0].name}</Text>
                 </View>
-                <View style={{ width: '9%', alignItems: 'flex-start' }}>
-                    <Text>PTS</Text>
-                </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                    <Text>W</Text>
-                </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                    <Text>L</Text>
-                </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                    <Text>D</Text>
-                </View>
-                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                    <Text>GD</Text>
-                </View>
-            </View>
-            <ScrollView style={{ width: '98%', alignSelf: 'center', padding: 5, height: '85%', marginVertical: 5 }}>
                 {
-                    standings.map((team, index) => {
+                    standings[0].standings.entries.map((team, index) => {
                         return (
-                            <View key={index} style={{ flexDirection: 'row', width: '98%', alignSelf: 'center', marginVertical: 4, borderBottomWidth: 1, borderColor: 'gray' }}>
-                                <View style={{ width: '55%', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap' }}>
-                                    <Text style={{ marginRight: 1 }}>{team.stats[10].value}. </Text>
-                                    <Image source={{ uri: team.team.logos ? team.team.logos[0].href : 'https://th.bing.com/th/id/R.0a09df8ffdb1195277590bd5b9f06af6?rik=4zje8w%2bankOyew&riu=http%3a%2f%2fpluspng.com%2fimg-png%2ffootball-png-transparent-image-2000.png&ehk=DYK7B1tP7ihsD54yUb56O%2bGDqrYKxa1tipyeLKLpue4%3d&risl=&pid=ImgRaw&r=0' }} width={20} height={20} style={{ marginRight: 1 }} />
-                                    <Text style={styles.text3}>{team.team.name}</Text>
+                            <View key={index}>
+
+                                <View style={{ flexDirection: 'row', width: '98%', alignSelf: 'center', marginVertical: 4, borderBottomWidth: 1, borderColor: 'gray' }}>
+
+                                    <View style={{ alignItems: 'flex-start', width: '5%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[10].value}.</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '50%' }}>
+                                        <Text>{team.team.name}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[0].value}</Text>
+                                    </View>
+
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[3].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[7].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[1].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[6].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[2].value}</Text>
+                                    </View>
                                 </View>
-                                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                                    <Text>{team.stats[0].value}</Text>
-                                </View>
-                                <View style={{ width: '9%', alignItems: 'flex-start' }}>
-                                    <Text>{team.stats[3].value}</Text>
-                                </View>
-                                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                                    <Text>{team.stats[7].value}</Text>
-                                </View>
-                                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                                    <Text>{team.stats[1].value}</Text>
-                                </View>
-                                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                                    <Text>{team.stats[6].value}</Text>
-                                </View>
-                                <View style={{ width: '8%', alignItems: 'flex-start' }}>
-                                    <Text>{team.stats[2].value}</Text>
+                            </View>
+                        )
+                    })
+                }
+                <View style={{ height: 20 }}></View>
+                <View style={styles.headerBox2}>
+                    <View style={{ width: '10%' }}>
+                        <Text>Rank|</Text>
+                    </View>
+                    <View style={{ width: '45%' }}>
+                        <Text>Team name                </Text>
+                    </View>
+                    <View style={{ width: '9%', alignItems: 'flex-start' }}>
+                        <Text>GP |</Text>
+                    </View>
+                    <View style={{ width: '9%', alignItems: 'flex-start' }}>
+                        <Text>PTS |</Text>
+                    </View>
+                    <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                        <Text>W |</Text>
+                    </View>
+                    <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                        <Text>L |</Text>
+                    </View>
+                    <View style={{ width: '7%', alignItems: 'flex-start' }}>
+                        <Text>D |</Text>
+                    </View>
+                    <View style={{ width: '8%', alignItems: 'flex-start' }}>
+                        <Text>GD|</Text>
+                    </View>
+                </View>
+                <View>
+                    <Text>{standings[1].name}</Text>
+                </View>
+                {
+                    standings[1].standings.entries.map((team, index) => {
+                        return (
+                            <View key={index}>
+
+                                <View style={{ flexDirection: 'row', width: '98%', alignSelf: 'center', marginVertical: 4, borderBottomWidth: 1, borderColor: 'gray' }}>
+
+                                    <View style={{ alignItems: 'flex-start', width: '5%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[10].value}.</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '50%' }}>
+                                        <Text>{team.team.name}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[0].value}</Text>
+                                    </View>
+
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[3].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[7].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[1].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[6].value}</Text>
+                                    </View>
+                                    <View style={{ alignItems: 'flex-start', width: '8%', alignItems: 'flex-start' }}>
+                                        <Text>{team.stats[2].value}</Text>
+                                    </View>
                                 </View>
                             </View>
                         )
@@ -127,7 +208,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f8f8f8',
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
-        width: '97%',
+        width: '100%',
         alignSelf: 'center',
         boxShadowColor: '#000',
         boxShadowOffset: {

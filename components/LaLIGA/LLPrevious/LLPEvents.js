@@ -2,23 +2,22 @@ import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet } from 'rea
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-const PSLEvents = ({ games }) => {
+const LLPrevEvents = ({ games }) => {
 
     const navigation = useNavigation()
 
-    return (
-        <ScrollView style={{ width: '100%', height: '90%' }} showsVerticalScrollIndicator={false}>
-            {
-                games.map((game, index) => (
-                    <TouchableOpacity key={index} onPress={() => navigation.navigate('EPLGameDetails', { game: game })} style={styles.box}>
-
+    function eve(game, index) {
+        if (game.competitions[0].status.type.state == 'post') {
+            return (
+                <TouchableOpacity key={index} onPress={() => navigation.navigate('BPGameDetails', { game: game })}>
+                    <View style={styles.box}>
                         <Text>{game.name}</Text>
                         <Text>{new Date(game.date).toLocaleDateString()}</Text>
                         <Text>{new Date(game.date).toLocaleTimeString()}</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                             <View style={{ width: '49%', alignItems: 'center', flexDirection: 'row', justifyContent: 'center' }}>
                                 <View style={{ alignItems: 'center', width: '75%' }}>
-                                    <Image source={{ uri: game.competitions[0].competitors[0].team.logo ? game.competitions[0].competitors[0].team.logo : 'https://th.bing.com/th/id/R.0a09df8ffdb1195277590bd5b9f06af6?rik=4zje8w%2bankOyew&riu=http%3a%2f%2fpluspng.com%2fimg-png%2ffootball-png-transparent-image-2000.png&ehk=DYK7B1tP7ihsD54yUb56O%2bGDqrYKxa1tipyeLKLpue4%3d&risl=&pid=ImgRaw&r=0' }} style={{ width: 50, height: 50 }} />
+                                    <Image source={{ uri: game.competitions[0].competitors[0].team.logo }} style={{ width: 50, height: 50 }} />
                                     <Text style={{ TextAlign: 'center' }}>{game.competitions[0].competitors[0].team.displayName}</Text>
                                 </View>
                                 <View style={{ width: '25%', alignItems: 'center' }}>
@@ -31,13 +30,22 @@ const PSLEvents = ({ games }) => {
                                     <Text style={{ fontSize: 20 }}>{game.competitions[0].competitors[1].score}</Text>
                                 </View>
                                 <View style={{ alignItems: 'center', width: '75%' }}>
-                                    <Image source={{ uri: game.competitions[0].competitors[1].team.logo ? game.competitions[0].competitors[1].team.logo : 'https://th.bing.com/th/id/R.0a09df8ffdb1195277590bd5b9f06af6?rik=4zje8w%2bankOyew&riu=http%3a%2f%2fpluspng.com%2fimg-png%2ffootball-png-transparent-image-2000.png&ehk=DYK7B1tP7ihsD54yUb56O%2bGDqrYKxa1tipyeLKLpue4%3d&risl=&pid=ImgRaw&r=0' }} style={{ width: 50, height: 50 }} />
+                                    <Image source={{ uri: game.competitions[0].competitors[1].team.logo }} style={{ width: 50, height: 50 }} />
                                     <Text style={{ textAlign: 'center' }}>{game.competitions[0].competitors[1].team.displayName}</Text>
                                 </View>
                             </View>
                         </View>
+                    </View>
+                </TouchableOpacity>
+            )
+        }
+    }
 
-                    </TouchableOpacity>
+    return (
+        <ScrollView style={{ width: '100%', height: '90%' }} showsVerticalScrollIndicator={false}>
+            {
+                games.map((game, index) => (
+                    eve(game, index)
                 ))
             }
             <View style={{ height: 100 }}>
@@ -92,4 +100,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default PSLEvents
+export default LLPrevEvents

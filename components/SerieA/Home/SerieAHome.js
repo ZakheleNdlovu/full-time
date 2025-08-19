@@ -43,7 +43,7 @@ const SerieAHome = () => {
                 <Image source={{ uri: league.logos[0].href }} width={50} height={50} />
             </View>
             <View >
-                <Text style={styles.text2}>Upcoming Events</Text>
+                <Text style={styles.text2}>Latest</Text>
             </View>
             <SerieAEvents games={games} />
             <Text>HomeComp</Text>

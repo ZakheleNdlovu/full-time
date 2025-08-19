@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import MLSTeamPlayer from './MLSTeamPlayer'
+import MLSPTeamPlayer from './MLSPTeamPlayer'
 
-const MLSLineUps = ({ game }) => {
+const MLSPLineUps = ({ game }) => {
 
     const [starters, setStarters] = useState([])
     const [starters2, setStarters2] = useState([])
@@ -57,7 +57,7 @@ const MLSLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <MLSTeamPlayer id={player.playerId} playerDet={player} />
+                                        <MLSPTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -70,7 +70,7 @@ const MLSLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <MLSTeamPlayer id={player.playerId} playerDet={player} />
+                                        <MLSPTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -83,4 +83,4 @@ const MLSLineUps = ({ game }) => {
     )
 }
 
-export default MLSLineUps
+export default MLSPLineUps

@@ -48,6 +48,20 @@ import BGameDetails from '../Bundesliga/Home/BGameDetails/BgameDetails'
 import L1GameDetails from '../League1/Home/L1GameDetails/L1GameDetails'
 import SAGameDetails from '../SerieA/Home/SAGameDetails/SAGameDetails'
 import SerieAStandings from '../SerieA/Standings/SeriaStandings'
+import EPLPrevious from '../PremierLeague/PreviousGames/EPLPrevious'
+import EPLPGameDetails from '../PremierLeague/PreviousGames/EPLPreviousDetails/EPLPGameStats'
+import PSLPrevious from '../PSL/PSLPrevious/PSLPHome'
+import PSLPGameDetails from '../PSL/PSLPrevious/PSLPDetails/PSLPGameDetails'
+import SAPrevious from '../SerieA/SAPrevious/SAPHome'
+import SAPGameDetails from '../SerieA/SAPrevious/SAPGameDetails/SAPGameDetails'
+import LLPrevious from '../LaLIGA/LLPrevious/LLPrevious'
+import LLPGameDetails from '../LaLIGA/LLPrevious/LLGameDetais/LLPGameDetails'
+import BPrevious from '../Bundesliga/BPrevious/BPPrevious'
+import BPGameDetails from '../Bundesliga/BPrevious/BPGameDetails/BPGameDetails'
+import L1Previous from '../League1/L1PreviousG/L1Previous'
+import L1PGameDetails from '../League1/L1PreviousG/L1GameDetails/L1PGameDetails'
+import MLSPrevious from '../MLS/MLSPrevious/MLSPrevious'
+import MLSPGameDetails from '../MLS/MLSPrevious/MSLPGameDetails/MLSPGameDetails'
 
 
 const Drawer = createDrawerNavigator()
@@ -59,12 +73,21 @@ function PremierLeagueBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
             <BottomTab.Screen name='EPL Events' component={EPLGameStack} />
+            <BottomTab.Screen name='EPL Previous Games' component={PrevPremStack} />
             <BottomTab.Screen name='Standings' component={EPLStandings} />
             <BottomTab.Screen name='Teams' component={EPLTeamStack} />
         </BottomTab.Navigator>
     )
 }
 
+function PrevPremStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='EPLPrev' component={EPLPrevious} />
+            <Stack.Screen name='EPLPGameDetails' component={EPLPGameDetails} />
+        </Stack.Navigator>
+    )
+}
 
 function EPLTeamStack() {
     return (
@@ -88,7 +111,8 @@ function EPLGameStack() {
 function LaLIGABottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='LaLiga Events' component={LaLIGAGameStack} />
+            <BottomTab.Screen name='Games' component={LaLIGAGameStack} />
+            <BottomTab.Screen name='Previous Games' component={LaLIGAPrevStack} />
             <BottomTab.Screen name='Standings' component={LaLIGAStandings} />
             <BottomTab.Screen name='Teams' component={LaLIGATeamStack} />
         </BottomTab.Navigator>
@@ -114,12 +138,22 @@ function LaLIGAGameStack() {
     )
 }
 
+function LaLIGAPrevStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='LLGames' component={LLPrevious} />
+            <Stack.Screen name='LLPGameDetails' component={LLPGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function SerieABottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='Serie A Events' component={SerieAGameStack} />
-            <BottomTab.Screen name='Serie A Standings' component={SerieAStandings} />
-            <BottomTab.Screen name='Serie A Teams' component={SerieATeamStack} />
+            <BottomTab.Screen name='Games' component={SerieAGameStack} />
+            <BottomTab.Screen name='Previous Games' component={SerieAPrevStack} />
+            <BottomTab.Screen name='Standings' component={SerieAStandings} />
+            <BottomTab.Screen name='Teams' component={SerieATeamStack} />
         </BottomTab.Navigator>
     )
 }
@@ -135,6 +169,15 @@ function SerieATeamStack() {
     )
 }
 
+function SerieAPrevStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='Games' component={SAPrevious} />
+            <Stack.Screen name='SAPGameDetails' component={SAPGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function SerieAGameStack() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -147,7 +190,8 @@ function SerieAGameStack() {
 function BundesligaBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='Bundesliga Events' component={BundesligaGameStack} />
+            <BottomTab.Screen name='Bames' component={BundesligaGameStack} />
+            <BottomTab.Screen name='Previous Games' component={BundesligaPrevStack} />
             <BottomTab.Screen name='Standings' component={BundesligaStandings} />
             <BottomTab.Screen name='Teams' component={BundesligaTeamStack} />
         </BottomTab.Navigator>
@@ -174,10 +218,20 @@ function BundesligaGameStack() {
     )
 }
 
+function BundesligaPrevStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='PrevGames' component={BPrevious} />
+            <Stack.Screen name='BPGameDetails' component={BPGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function League1BottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='League 1 Events' component={League1GameStack} />
+            <BottomTab.Screen name='Games' component={League1GameStack} />
+            <BottomTab.Screen name='Previous Games' component={League1PrevStack} />
             <BottomTab.Screen name='Standings' component={League1Standings} />
             <BottomTab.Screen name='Teams' component={League1TeamStack} />
         </BottomTab.Navigator>
@@ -203,10 +257,20 @@ function League1GameStack() {
     )
 }
 
+function League1PrevStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='L1PGames' component={L1Previous} />
+            <Stack.Screen name='L1PGameDetails' component={L1PGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
 function PSLBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTab.Screen name='PSL Events' component={PSLGameStack} />
+            <BottomTab.Screen name='Games' component={PSLGameStack} />
+            <BottomTab.Screen name='Previous Games' component={PSLPrevStack} />
             <BottomTab.Screen name='Standings' component={PSLStandings} />
             <BottomTab.Screen name='Teams' component={PSLTeamStack} />
         </BottomTab.Navigator>
@@ -218,6 +282,15 @@ function PSLGameStack() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name='EPLGames' component={PSLHome} />
             <Stack.Screen name='EPLGameDetails' component={PSLGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
+function PSLPrevStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='Games' component={PSLPrevious} />
+            <Stack.Screen name='PSLPGameDetails' component={PSLPGameDetails} />
         </Stack.Navigator>
     )
 }
@@ -236,6 +309,7 @@ function MLSBottomTab() {
     return (
         <BottomTab.Navigator screenOptions={{ headerShown: false }}>
             <BottomTab.Screen name='MLS Events' component={MLSGameStack} />
+            <BottomTab.Screen name='Previous Games' component={MLSPrevStack} />
             <BottomTab.Screen name='Standings' component={MLSStandings} />
             <BottomTab.Screen name='Teams' component={MLSTeamStack} />
         </BottomTab.Navigator>
@@ -257,6 +331,15 @@ function MLSGameStack() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name='MLS Games' component={MLSHome} />
             <Stack.Screen name='MLSGameDetails' component={MLSGameDetails} />
+        </Stack.Navigator>
+    )
+}
+
+function MLSPrevStack() {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='MLSPGames' component={MLSPrevious} />
+            <Stack.Screen name='MLSPGameDetails' component={MLSPGameDetails} />
         </Stack.Navigator>
     )
 }

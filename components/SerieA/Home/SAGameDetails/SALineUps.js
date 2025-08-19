@@ -23,7 +23,7 @@ const SALineUps = ({ game }) => {
             }
 
             const getStarters2 = async () => {
-                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/rsa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[1].team.id}/roster`)
+                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/ita.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[1].team.id}/roster`)
                 if (!response.ok) {
                     throw new Error("error");
 

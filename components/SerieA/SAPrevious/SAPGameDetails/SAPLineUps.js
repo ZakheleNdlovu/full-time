@@ -1,8 +1,9 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import MLSTeamPlayer from './MLSTeamPlayer'
+import SAPTeamPlayer from './SAPTeamOlayer'
 
-const MLSLineUps = ({ game }) => {
+
+const SAPLineUps = ({ game }) => {
 
     const [starters, setStarters] = useState([])
     const [starters2, setStarters2] = useState([])
@@ -12,7 +13,7 @@ const MLSLineUps = ({ game }) => {
     try {
         useEffect(() => {
             const getStarters = async () => {
-                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/usa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
+                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/ita.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[0].team.id}/roster`)
                 if (!response.ok) {
                     throw new Error("error");
 
@@ -22,7 +23,7 @@ const MLSLineUps = ({ game }) => {
             }
 
             const getStarters2 = async () => {
-                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/usa.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[1].team.id}/roster`)
+                const response = await fetch(`https://sports.core.api.espn.com/v2/sports/soccer/leagues/ita.1/events/${game.id}/competitions/${game.id}/competitors/${game.competitions[0].competitors[1].team.id}/roster`)
                 if (!response.ok) {
                     throw new Error("error");
 
@@ -57,7 +58,7 @@ const MLSLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <MLSTeamPlayer id={player.playerId} playerDet={player} />
+                                        <SAPTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -70,7 +71,7 @@ const MLSLineUps = ({ game }) => {
                             return (
                                 <View key={i} style={{ width: '100%' }}>
                                     <View >
-                                        <MLSTeamPlayer id={player.playerId} playerDet={player} />
+                                        <SAPTeamPlayer id={player.playerId} playerDet={player} />
                                     </View>
                                 </View>
                             )
@@ -83,4 +84,4 @@ const MLSLineUps = ({ game }) => {
     )
 }
 
-export default MLSLineUps
+export default SAPLineUps

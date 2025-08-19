@@ -2,16 +2,15 @@ import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet } from 'rea
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-const PSLEvents = ({ games }) => {
+const PSLPrevEvents = ({ games }) => {
 
     const navigation = useNavigation()
 
-    return (
-        <ScrollView style={{ width: '100%', height: '90%' }} showsVerticalScrollIndicator={false}>
-            {
-                games.map((game, index) => (
-                    <TouchableOpacity key={index} onPress={() => navigation.navigate('EPLGameDetails', { game: game })} style={styles.box}>
-
+    function eve(game, index) {
+        if (game.competitions[0].status.type.state == 'post') {
+            return (
+                <TouchableOpacity key={index} onPress={() => navigation.navigate('PSLPGameDetails', { game: game })}>
+                    <View style={styles.box}>
                         <Text>{game.name}</Text>
                         <Text>{new Date(game.date).toLocaleDateString()}</Text>
                         <Text>{new Date(game.date).toLocaleTimeString()}</Text>
@@ -36,8 +35,17 @@ const PSLEvents = ({ games }) => {
                                 </View>
                             </View>
                         </View>
+                    </View>
+                </TouchableOpacity>
+            )
+        }
+    }
 
-                    </TouchableOpacity>
+    return (
+        <ScrollView style={{ width: '100%', height: '90%' }} showsVerticalScrollIndicator={false}>
+            {
+                games.map((game, index) => (
+                    eve(game, index)
                 ))
             }
             <View style={{ height: 100 }}>
@@ -92,4 +100,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default PSLEvents
+export default PSLPrevEvents

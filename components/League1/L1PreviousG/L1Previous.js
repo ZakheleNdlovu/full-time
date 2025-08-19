@@ -1,11 +1,10 @@
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
-
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
-import League1Events from './League1Events'
+import L1PrevEvents from './L1Events'
 
-const League1Home = () => {
+const L1Previous = () => {
 
     const [games, setGames] = useState([])
     const [league, setLeague] = useState([])
@@ -14,7 +13,7 @@ const League1Home = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard')
+            const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20250801-20260530')
             if (!response.ok) {
                 throw new Error('Unable to connect')
             }
@@ -24,6 +23,7 @@ const League1Home = () => {
             setLoading(false)
         }
         fetchGames()
+
     }, [])
 
     if (loading) {
@@ -37,16 +37,18 @@ const League1Home = () => {
         <View style={{ width: '97%', alignItems: 'center', alignSelf: 'center' }}>
             <View style={styles.headerBox}>
                 <TouchableOpacity style={{ left: 10 }} onPress={() => navigation.openDrawer()}>
-                    <Ionicons name="menu" size={24} color="black" />
+                    <Ionicons name="menu" size={30} color="black" />
                 </TouchableOpacity>
                 <Text style={styles.text}>{league.name}</Text>
-                <Image source={{ uri: league.logos[0].href }} width={50} height={50} />
+                <Image source={{ uri: league.logos[0].href }} width={45} height={45} />
             </View>
             <View >
-                <Text style={styles.text2}>Latest</Text>
+                <Text style={styles.text2}>Previous Games</Text>
             </View>
-            <League1Events games={games} />
+            <L1PrevEvents games={games} />
+            <View style={{ height: 50 }}>
 
+            </View>
         </View>
     )
 }
@@ -96,4 +98,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default League1Home
+export default L1Previous
